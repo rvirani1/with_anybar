@@ -33,7 +33,7 @@ begin
     warn "Your job died a miserable death!"
   end
 
-  warn "Hit any key to end"
+  warn "Press Enter to end"
   $stdin.gets
 ensure
   Process.kill('QUIT', @blinker) if @blinker
