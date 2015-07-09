@@ -6,8 +6,17 @@ require "with_anybar"
 
 # Launch Anybar if not running
 current_user = `whoami`.strip
-unless system("open /Users/#{current_user}/Applications/AnyBar.app")
-  fail "Could not launch Anybar app"
+
+if Dir.exist?("/Users/#{current_user}/Applications/AnyBar.app")
+  unless system("open /Users/#{current_user}/Applications/AnyBar.app")
+    fail "Could not launch Anybar app"
+  end
+elsif Dir.exist?("/Applications/AnyBar.app")
+  unless system("open /Applications/AnyBar.app")
+    fail "Could not launch Anybar app"
+  end
+else
+  fail "Could not find AnyBar app"
 end
 
 # Clear Anybar status
@@ -24,7 +33,7 @@ begin
     warn "Your job died a miserable death!"
   end
 
-  warn "Hit any key to end"
+  warn "Press Enter to end"
   $stdin.gets
 ensure
   Process.kill('QUIT', @blinker) if @blinker
