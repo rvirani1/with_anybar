@@ -18,9 +18,11 @@ Call any command on your terminal using with_anybar
 
     $ with_anybar say "Your AnyBar should turn orange before turning green right now"
 
-While the command is running, your AnyBar will turn **ORANGE**. 
-If the command succeeds, your AnyBar will turn **GREEN**.
-If the command fails, your AnyBar will turn **RED**.
+While the command is running, your AnyBar will turn **ORANGE**
+
+If the command succeeds, your AnyBar will turn **GREEN**
+
+If the command fails, your AnyBar will turn **RED**
 
 If you are running multiple instances of AnyBar or not running it on the standard port (1738), you can set the
 `ANYBAR_PORT` environment variable on run.
