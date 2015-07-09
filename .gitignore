@@ -7,3 +7,13 @@
 /pkg/
 /spec/reports/
 /tmp/
+*.gem
+*.rbc
+/.config
+/InstalledFiles
+/test/tmp/
+/test/version_tmp/
+
+/vendor/bundle
+/lib/bundler/man/
+

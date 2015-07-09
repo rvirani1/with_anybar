@@ -1,4 +1,4 @@
-# WithAnybar
+# with_anybar
 
 With_anybar is a simple gem that uses [AnyBar](https://github.com/tonsky/AnyBar) as a notification system for a long running command line command. For example, you may need to execute a long build process or script that sometimes may error. Rather than manually checking the status of that command, you can see whether it's complete via AnyBar!
 
