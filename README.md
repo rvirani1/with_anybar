@@ -1,39 +1,28 @@
 # WithAnybar
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/with_anybar`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+With_anybar is a simple gem that uses [AnyBar](https://github.com/tonsky/AnyBar) as a notification system for a long running command line command. For example, you may need to execute a long build process or script that sometimes may error. Rather than manually checking the status of that command, you can see whether it's complete via AnyBar!
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Install AnyBar
 
-```ruby
-gem 'with_anybar'
-```
+    $ brew cask install anybar
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Install the with_anybar gem
 
     $ gem install with_anybar
 
 ## Usage
 
-TODO: Write usage instructions here
+Call any command on your terminal using with_anybar
 
-## Development
+    $ with_anybar say "Your AnyBar should turn orange before turning green right now"
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
+While the command is running, your AnyBar will turn **ORANGE**. 
+If the command succeeds, your AnyBar will turn **GREEN**.
+If the command fails, your AnyBar will turn **RED**.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+If you are running multiple instances of AnyBar or not running it on the standard port (1738), you can set the
+`ANYBAR_PORT` environment variable on run.
 
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/with_anybar/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+    $ ANYBAR_PORT=1739 with_anybar say "Your AnyBar should turn orange before turning green right now"
