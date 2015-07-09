@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+require "with_anybar"
+
+# Get arguments afterward and concatenate to string
+@command = ARGV.join(" ")
+
+# Launch Anybar if not running
+current_user = `whoami`.strip
+unless system("open /Users/#{current_user}/Applications/AnyBar.app")
+  fail "Could not launch Anybar app"
+end
+
+# Clear Anybar status
+warn "Getting to Work"
+WithAnybar.change_color("orange")
+
+# Run as system call
+begin
+  if system(@command)
+    @blinker = WithAnybar.blink("green")
+    warn "Boom! Done."
+  else
+    @blinker = WithAnybar.blink("red")
+    warn "Your job died a miserable death!"
+  end
+
+  warn "Hit any key to end"
+  $stdin.gets
+ensure
+  Process.kill('QUIT', @blinker) if @blinker
+  WithAnybar.clear_color
+end
